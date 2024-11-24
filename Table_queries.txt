@@ -1,0 +1,34 @@
+Table creation queries
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Username` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci	
+
+
+CREATE TABLE `posts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Picture` blob,
+  `Content` varchar(255) DEFAULT NULL,
+  `Likes` int NOT NULL DEFAULT '0',
+  `User_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_fk` (`User_id`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`User_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `comments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Content` varchar(255) DEFAULT NULL,
+  `User_id` int DEFAULT NULL,
+  `Post_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_comment_fk` (`User_id`),
+  KEY `post_fk` (`Post_id`),
+  CONSTRAINT `post_fk` FOREIGN KEY (`Post_id`) REFERENCES `posts` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `user_comment_fk` FOREIGN KEY (`User_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

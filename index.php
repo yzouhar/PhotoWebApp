@@ -24,6 +24,16 @@ and the authors @ Unsplash
     <ul>
       <li><a href="./trending.php">Trending</a></li>
       <li><a href="./profilepage.php">Profile</a></li>
+      <?php
+      session_start();
+
+      if (isset($_SESSION['username'])) {
+        echo '<li><a href="./logout.php" class="split">Logout</a></li>';
+      }
+      else {
+        echo '<li><a href="./loginview.php" class="split">Login</a></li>';
+      }
+      ?>
     </ul>
   </nav>
 

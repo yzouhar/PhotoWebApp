@@ -7,6 +7,13 @@
         <link rel = "stylesheet" type="text/css" href="main.css">
     </head>
     <body>
+
+        <div class="topnav">
+        <a href="index.php">Home</a>
+        <a href="trending.php">Trending</a>
+        <a class="active" href="loginview.php" class="split">Register</a>
+        </div>
+
         <!--register form-->
         <form method="post" action="register.php">
             <label for="user">Username:</label>

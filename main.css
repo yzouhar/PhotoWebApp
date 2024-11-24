@@ -93,6 +93,14 @@ a:hover {
     display:inline-block;
 }
 
+/* Create a right-aligned (split) link inside the navigation bar */
+nav li a.split {
+    color: #A9A9A9;
+    position: absolute;
+    right: 100px;
+}
+
+
 /*
     code from https://getcssscan.com/css-buttons-examples button 28
 
@@ -141,4 +149,6 @@ a:hover {
     box-shadow: none;
     transform: translateY(0);
 }
+
+
 
