@@ -1,11 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Montserrat';
+    font-family: "Inter", serif;
 }
 
-h1 {
-    margin: 2em 0;
-}
 
 img {
     width: 100%;
@@ -24,24 +21,12 @@ img {
 .grid-col {
     flex: 1;
     padding: 0 .1em;
-    display: block; /* Ensure columns are always displayed */
+    display: block;
 }
 
 .grid-col--2,
 .grid-col--3 {
     display: none;
-}
-
-.content {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    margin-top: 1em;
-}
-
-.content h2 {
-    margin: .2em .5em;
-    font-size: 1em;
 }
 
 @media (min-width: 768px) {
@@ -65,20 +50,8 @@ img {
         margin-bottom: .8em;
     }
 
-    .content {
-        opacity: 0;
-        transform: translateX(-.5em);
-        transition: all 2s;
-        will-change: opacity, transform;
-    }
-
     .grid-item:hover {
         cursor: pointer;
-    }
-
-    .grid-item:hover .content {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
 
@@ -96,6 +69,34 @@ img {
     }
 }
 
+nav li {
+    list-style: none;
+    display: inline;
+    margin: 10px;
+    padding:0px;
+}
+
+a {
+    text-decoration: none;
+    color: #A9A9A9;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+a:hover {
+    color: #7D7F7C;
+    display:inline-block;
+}
+
+/*
+    code from https://getcssscan.com/css-buttons-examples button 28
+
+*/
 
 #uploadButton {
     appearance: none;
@@ -140,3 +141,4 @@ img {
     box-shadow: none;
     transform: translateY(0);
 }
+
