@@ -7,21 +7,22 @@
 </head>
 <body>
 
-    <div class="topnav">
-    <a href="index.php">Home</a>
-    <a href="trending.php">Trending</a>
-    <?php
-    session_start();
+    <nav>
+        <ul>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./trending.php">Trending</a></li>
+            <?php
+            session_start();
 
-    if (isset($_SESSION['username'])) {
-        echo '<a class="active" href="profilepage.php">My Profile</a>';
-        echo '<a href="logout.php" class="split">Logout</a>';
-    }
-    else {
-        echo '<a href="loginview.php" class="split">Login</a>';
-    }
-    ?>
-    </div>
+            if (isset($_SESSION['username'])) {
+                echo '<li><a href="./logout.php" class="split">Logout</a></li>';
+            }
+            else {
+                echo '<li><a href="./loginview.php" class="split">Login</a></li>';
+            }
+            ?>
+        </ul>
+    </nav>
 
 
     <?php
