@@ -6,8 +6,25 @@
     <link rel = "stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+
+    <div class="topnav">
+    <a href="index.php">Home</a>
+    <a href="trending.php">Trending</a>
     <?php
     session_start();
+
+    if (isset($_SESSION['username'])) {
+        echo '<a class="active" href="profilepage.php">My Profile</a>';
+        echo '<a href="logout.php" class="split">Logout</a>';
+    }
+    else {
+        echo '<a href="loginview.php" class="split">Login</a>';
+    }
+    ?>
+    </div>
+
+
+    <?php
 
     require_once('config.data.php');
     //connect to database
@@ -73,7 +90,7 @@
 
                     $base64Image = base64_encode($obj->picture);
 
-                    echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture">';
+                    echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy">';
                 }
 
             }
