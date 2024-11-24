@@ -77,53 +77,16 @@ and the authors @ Unsplash
         $result->free_result();
     }
     ?>
-
-    <div class="grid-item">
-      <img src="images/1.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/2.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/3.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/3.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/4.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/5.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/6.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/7.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/8.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/9.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/10.jpg" alt="picture">
-    </div>
-    <div class="grid-item">
-      <img src="images/11.jpg" alt="picture">
-    </div>
-  </div>
-
-  <form method="post" action="addpost.php">
-    <label> Upload </label>
-    <input type="file" name="imageUpload" id="userUpload" accept="image/png, image/gif, image/jpeg">
-    <input type="button" value="Submit" id="uploadButton">
-  </form>
   <img id="previewImage" alt="Image Preview" style="display:none; width: 300px; margin-top: 20px;">
 
 </div>
+
+<!-- Add images -->
+<form method="post" action="addpost.php" enctype="multipart/form-data">
+  <label> Upload </label>
+  <input type="file" name="imageUpload" id="userUpload" accept="image/png, image/gif, image/jpeg">
+  <input type="submit" value="Submit" id="uploadButton" name = "uploadpost">
+</form>
 
 <script src="https://unpkg.com/colcade@0/colcade.js"></script>
 <script>
