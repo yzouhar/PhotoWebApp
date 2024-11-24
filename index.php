@@ -22,8 +22,8 @@ and the authors @ Unsplash
 
   <nav>
     <ul>
-      <li><a href="./trending.html">Trending</a></li>
-      <li><a href="./profile.html">Profile</a></li>
+      <li><a href="./trending.php">Trending</a></li>
+      <li><a href="./profilepage.php">Profile</a></li>
     </ul>
   </nav>
 
@@ -41,6 +41,7 @@ and the authors @ Unsplash
 
     </div>
 
+    <!-- Add images from the database -->
     <?php
     require_once('config.data.php');
     //connect to database
