@@ -44,7 +44,7 @@ elseif ($_SESSION['liked'][$userid] % 2 == 1) {
 
     $_SESSION['liked'][$userid] += 1;
 }else{
-    echo "Error!"
+    echo "Error!";
 }
  
 
