@@ -27,5 +27,7 @@ if (isset($_POST['register'])) {
 
     $mysqli -> close();
 
+    header('Location: index.php');
+    exit;
 }
 ?>
