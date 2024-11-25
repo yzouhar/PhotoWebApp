@@ -14,36 +14,39 @@ and the authors @ Unsplash
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <link rel="stylesheet" href="main.css">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <title>PhotoNest</title>
 </head>
-<body>
+<body style="background-color: #2d3641;">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<div class="container">
-  <nav>
-    <ul>
-      <li><a href="./trending.php">Trending</a></li>
-      <li><a href="./profilepage.php">Profile</a></li>
-      <?php
-      session_start();
+<div class="topnav">
+  <a href="index.php">Home</a>
+  <a href="trending.php">Trending</a>
+  <?php
+  session_start();
+  
+  if (isset($_SESSION['username'])) {
+      echo '<a href="profilepage.php">My Profile</a>';
+      echo '<a href="logout.php" class="split">Logout</a>';
+  } else {
+      echo '<a class="active split" href="loginview.php">Login</a>';
+  }
+  ?>
+</div>
 
-      if (isset($_SESSION['username'])) {
-        echo '<li><a href="./logout.php" class="split">Logout</a></li>';
-      }
-      else {
-        echo '<li><a href="./loginview.php" class="split">Login</a></li>';
-      }
-      ?>
-    </ul>
-  </nav>
+<div class="container">
 
   <!-- Add images -->
+  <br>
   <form method="post" action="addpost.php" enctype="multipart/form-data">
-    <label> Upload </label>
-    <input type="file" name="imageUpload" id="userUpload" accept="image/png, image/gif, image/jpeg">
+    <label class="userUpload"> <h4> Upload: </h4></label><br>
+    <input type="file" name="imageUpload" class="userUpload" accept="image/png, image/gif, image/jpeg">
+    <br><br>
     <input type="submit" value="Submit" id="uploadButton" name = "uploadpost">
   </form>
   <br><br>
@@ -117,6 +120,8 @@ and the authors @ Unsplash
 
                     var icon = document.createElement('i');
                     icon.classList.add('bi', 'bi-heart-fill');
+                    icon.style = \"color:#DE3163;\"
+                    
 
                     label.appendChild(icon);
 

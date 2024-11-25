@@ -16,6 +16,7 @@ for (let i = 0; i < grid_items.length; i++) {
 
             var icon = document.createElement('i');
             icon.classList.add('bi', 'bi-heart-fill');
+            icon.style = "color:#DE3163;"
 
             label.appendChild(icon);
             picture.appendChild(label);
