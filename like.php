@@ -52,8 +52,12 @@ if ($result->num_rows > 0) {
     }
     $SQLInsert->close();
 }
+
 $SQLCheck->close();
 $SQLUpdate->close();
 
+echo "<meta http-equiv='refresh' content='0; url=http://example.com/' />";
 
+header("Location: index.php");
+exit;
 ?>
