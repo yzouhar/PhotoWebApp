@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="topnav">
+        <img src="./images/icon.png/" id="icon" style="width: 50px;height: 50px;float: left;">
         <a href="index.php">Home</a>
         <a href="trending.php">Trending</a>
         <?php

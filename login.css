@@ -1,12 +1,11 @@
 /*Login Styles*/
 body {
     font-family: "Inter", serif;
+    background-color: #2d3641; 
     margin: 0;
     padding: 0;
-    background-color: #2d3641; 
     color: #FFF;
 }
-
 
 .topnav {
     background-color: #333;
