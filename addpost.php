@@ -39,5 +39,8 @@ if (isset($_POST['uploadpost'])) {
     }
 
     $mysqli->close();
+
+    header('Location: index.php');
+    exit;
 }
 ?>

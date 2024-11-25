@@ -89,17 +89,15 @@ nav {
 }
 
 a:hover {
-    color: #7D7F7C;
     display:inline-block;
 }
 
 /* Create a right-aligned (split) link inside the navigation bar */
 nav li a.split {
-    color: #A9A9A9;
     position: absolute;
+    text-align: center;
     right: 100px;
 }
-
 
 /*
     code from https://getcssscan.com/css-buttons-examples button 28
@@ -130,7 +128,7 @@ nav li a.split {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 100%;
+    width: 50%;
     will-change: transform;
 }
 
@@ -148,4 +146,10 @@ nav li a.split {
 .uploadButton:active {
     box-shadow: none;
     transform: translateY(0);
+}
+
+form {
+    text-align: center;
+    display: inline-block; 
+    width:100%;
 }

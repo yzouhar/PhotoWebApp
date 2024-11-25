@@ -7,26 +7,25 @@
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./trending.php">Trending</a></li>
-            <?php
-            session_start();
+<nav>
+    <ul>
+      <li><a href="./index.php">Home</a></li>
+      <li><a href="./trending.php">Trending</a></li>
+      <?php
+      session_start();
 
-            if (isset($_SESSION['username'])) {
-                echo '<li><a href="./logout.php" class="split">Logout</a></li>';
-            }
-            else {
-                echo '<li><a href="./loginview.php" class="split">Login</a></li>';
-            }
-            ?>
-        </ul>
-    </nav>
+      if (isset($_SESSION['username'])) {
+          echo '<li><a href="./logout.php" class="split">Logout</a></li>';
+      }
+      else {
+          echo '<li><a href="./loginview.php" class="split">Login</a></li>';
+      }
+      ?>
+    </ul>
+</nav>
 
 
     <?php
-
     require_once('config.data.php');
     //connect to database
     $mysqli = new mysqli (HOST, USER, PASSWORD, DB, PORT);
@@ -60,10 +59,8 @@
         echo "<p><strong>$numpost</strong> <small>Posts</small></p>";
 
         echo '<hr width="100%" color="black" size="3">';
-
-        //add all post by user here
-
     }
+
     else {
         echo "<h1><strong>You are not Log in</strong></h1>";
         echo "<h2>Please Log in to check your profile</h2>";
@@ -88,7 +85,7 @@
 
                     $base64Image = base64_encode($obj->picture);
 
-                    echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy">';
+                    echo '<img class="gridless" src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy">';
                 }
 
             }
