@@ -81,19 +81,17 @@ and the authors @ Unsplash
         die('Connection failed!'); 
     }
 
-    if (isset($_SESSION['username'])) { // only generate images if logged in
-      $SQL = "SELECT picture, id FROM posts";
-      if ($result = $mysqli->query($SQL)) {
+    $SQL = "SELECT picture, id FROM posts";
+    if ($result = $mysqli->query($SQL)) {
 
-        while ($obj = $result->fetch_object()) {
+      while ($obj = $result->fetch_object()) {
 
-            $base64Image = base64_encode($obj->picture);
+          $base64Image = base64_encode($obj->picture);
 
-            echo '<div class="grid-item" id = "'. $obj->id . '"><img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy"></div>';
-        }
-
-        $result->free_result();
+          echo '<div class="grid-item" id = "'. $obj->id . '"><img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy"></div>';
       }
+
+      $result->free_result();
     }
     ?>
 
@@ -156,9 +154,14 @@ and the authors @ Unsplash
     </script>
 
 </div>
-
 <script src="https://unpkg.com/colcade@0/colcade.js"></script>
-<script src="index.js"></script>
+
+<?php
+if (isset($_SESSION['username'])) {
+  echo '<script src="index.js"></script>';
+}
+?>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     var colc = new Colcade('.grid', {
