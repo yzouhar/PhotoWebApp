@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 require_once('config.data.php');
@@ -12,8 +11,8 @@ if ($mysqli->connect_error) {
 } 
 
 //need to get post id somehow
-$userid = $_SESSION['user_id']; // User ID from the session
-$postid = $_GET['post_id']; // Post ID from the request (e.g., GET/POST)
+$userid = $_SESSION['id']; // User ID from the session
+$postid = $_GET['post_id'] ?? null; // Post ID from the request (e.g., GET/POST)
 
 if (!$userid || !$postid) {
     die('Invalid request.');
@@ -37,7 +36,7 @@ if ($result->num_rows > 0) {
     } else {
         echo "Failed to remove like.";
     }
-    $SQLDelete.close();
+    $SQLDelete->close();
 } else {
     // User has not liked the post, so add the like
     $SQLInsert = $mysqli->prepare("INSERT INTO likes (user_id, post_id) VALUES (?, ?)");
@@ -51,10 +50,10 @@ if ($result->num_rows > 0) {
     } else {
         echo "Failed to add like.";
     }
-    $SQLInsert.close();
+    $SQLInsert->close();
 }
-$SQLCheck.close();
-$SQLUpdate.close();
+$SQLCheck->close();
+$SQLUpdate->close();
 
 
 ?>

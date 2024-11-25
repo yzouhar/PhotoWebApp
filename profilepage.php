@@ -68,9 +68,6 @@
         echo "<h1><strong>You are not Log in</strong></h1>";
         echo "<h2>Please Log in to check your profile</h2>";
     }
-
-
-
     ?>
 
 

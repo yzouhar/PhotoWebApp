@@ -21,7 +21,7 @@
             <label for="email">Email:</label>
             <input type="text" id="email" name="email"><br>
             <label for="pass">Password:</label>
-            <input type="text" id="pass" name="pass"><br>
+            <input type="password" id="pass" name="pass"><br>
             <input type ="submit" value="Register" name="register">
         </form>
 

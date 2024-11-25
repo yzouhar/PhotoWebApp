@@ -29,7 +29,7 @@
             <label for="user">Username:</label>
             <input type="text" id="user" name="user"><br>
             <label for="pass">Password:</label>
-            <input type="text" id="pass" name="pass"><br>
+            <input type="password" id="pass" name="pass"><br>
             <input type ="submit" value="Login" name="login">
         </form>
 
