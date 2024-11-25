@@ -3,6 +3,7 @@
 <head>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="register.css">
+    <link rel="icon" type="image/x-icon" href="./images/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>

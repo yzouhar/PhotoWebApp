@@ -5,26 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" href="profile.css">
-    <link rel="icon" type="image/x-icon" href="./images/icon.png">
 </head>
 <body>
 
 <!-- Navigation bar -->
-<div class="topnav">
-    <img src="./images/icon.png/" id="icon" style="width: 50px;height: 50px;float: left;">
-    <a href="index.php">Home</a>
-    <a href="trending.php">Trending</a>
-    <?php
-    session_start();
-    
-    if (isset($_SESSION['username'])) {
-        echo '<a href="profilepage.php">My Profile</a>';
-        echo '<a href="logout.php" class="split">Logout</a>';
-    } else {
-        echo '<a class="active split" href="loginview.php">Login</a>';
-    }
-    ?>
-</div>
+<nav>
+    <ul>
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./trending.php">Trending</a></li>
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo '<li><a href="./logout.php" class="split">Logout</a></li>';
+        } else {
+            echo '<li><a href="./loginview.php" class="split">Login</a></li>';
+        }
+        ?>
+    </ul>
+</nav>
 
 <!-- Profile Section -->
 <div class="profile-container">
@@ -53,7 +51,7 @@
         echo "<div class='profile-header'>";
         echo "<div class='profile-img'>";
         // Use default profile picture with lazy loading
-        echo "<img src='images/default_profile.png' alt='Profile Picture' loading='lazy' />";
+        echo "<img src='images/default-profile.png' alt='Profile Picture' loading='lazy' />";
         echo "</div>";
         echo "<div class='profile-details'>";
         echo "<h1>{$_SESSION['username']}</h1>";
@@ -94,3 +92,115 @@
 
 </body>
 </html>
+
+
+
+
+
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2d3641;
+    color: #333;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background-color: #575757;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff49;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+
+.profile-img {
+    margin-right: 20px;
+}
+
+.profile-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-details h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #fffcfc;
+}
+
+.profile-details h2 {
+    margin: 5px 0;
+    font-size: 20px;
+    color: #c5c1c1;
+}
+
+.profile-details p {
+    font-size: 16px;
+    color: #e9e9e9;
+}
+
+.user-posts {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #272e36;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.post-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}

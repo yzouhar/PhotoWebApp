@@ -4,6 +4,7 @@
     <title>Trending</title>
     <!-- Correct path to your CSS file -->
     <link rel="stylesheet" type="text/css" href="trending.css?v">
+    <link rel="icon" type="image/x-icon" href="./images/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
