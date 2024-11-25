@@ -40,6 +40,14 @@ and the authors @ Unsplash
     </ul>
   </nav>
 
+  <!-- Add images -->
+  <form method="post" action="addpost.php" enctype="multipart/form-data">
+    <label> Upload </label>
+    <input type="file" name="imageUpload" id="userUpload" accept="image/png, image/gif, image/jpeg">
+    <input type="submit" value="Submit" id="uploadButton" name = "uploadpost">
+  </form>
+  <br><br>
+
   <div class="grid">
     <div class="grid-col grid-col--1">
 
@@ -65,17 +73,19 @@ and the authors @ Unsplash
         die('Connection failed!'); 
     }
 
-    $SQL = "SELECT picture, id FROM posts";
-    if ($result = $mysqli->query($SQL)) {
+    if (isset($_SESSION['username'])) { // only generate images if logged in
+      $SQL = "SELECT picture, id FROM posts";
+      if ($result = $mysqli->query($SQL)) {
 
-      while ($obj = $result->fetch_object()) {
+        while ($obj = $result->fetch_object()) {
 
-          $base64Image = base64_encode($obj->picture);
+            $base64Image = base64_encode($obj->picture);
 
-          echo '<div class="grid-item" id = "'. $obj->id . '"><img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy"></div>';
+            echo '<div class="grid-item" id = "'. $obj->id . '"><img src="data:image/jpeg;base64,' . $base64Image . '" alt="picture" loading="lazy"></div>';
+        }
+
+        $result->free_result();
       }
-
-      $result->free_result();
     }
     ?>
 
@@ -94,7 +104,8 @@ and the authors @ Unsplash
 
       while ($obj = $result->fetch_object()) {
 
-          // Ensure we only see likes made by the current user
+        // Ensure we only see likes made by the current logged-in user
+        if (isset($_SESSION['username'])) {
           if ($obj->user_id == $_SESSION["id"]) {
               echo "
               <script>
@@ -114,6 +125,7 @@ and the authors @ Unsplash
               </script>
               ";
           }
+        }  
       }
 
       $result->free_result();
@@ -134,13 +146,6 @@ and the authors @ Unsplash
     </script>
 
 </div>
-
-<!-- Add images -->
-<form method="post" action="addpost.php" enctype="multipart/form-data">
-  <label> Upload </label>
-  <input type="file" name="imageUpload" id="userUpload" accept="image/png, image/gif, image/jpeg">
-  <input type="submit" value="Submit" id="uploadButton" name = "uploadpost">
-</form>
 
 <script src="https://unpkg.com/colcade@0/colcade.js"></script>
 <script src="index.js"></script>
