@@ -42,8 +42,7 @@ if (isset($_POST['login'])) {
     $SQL->close();
     $mysqli->close();
 
-    echo '<a href="profilepage.php" class="button">Profile</a>';
-
-
+    header('Location: index.php');
+    exit;
 }
 ?>
