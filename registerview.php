@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Register
-        </title>
-        <link rel = "stylesheet" type="text/css" href="main.css">
-    </head>
-    <body>
-
-        <div class="topnav">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topnav">
         <a href="index.php">Home</a>
         <a href="trending.php">Trending</a>
-        <a class="active" href="loginview.php" class="split">Register</a>
-        </div>
+        <a class="active split" href="loginview.php">Login</a>
+    </div>
 
-        <!--register form-->
-        <form method="post" action="register.php">
+    <div class="form-container">
+        <form method="post" action="register.php" class="login-form">
+            <h1>Register</h1>
             <label for="user">Username:</label>
-            <input type="text" id="user" name="user"><br>
+            <input type="text" id="user" name="user" placeholder="Enter your username" required><br>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email"><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
             <label for="pass">Password:</label>
-            <input type="password" id="pass" name="pass"><br>
-            <input type ="submit" value="Register" name="register">
+            <input type="password" id="pass" name="pass" placeholder="Enter your password" required><br>
+            <input type="submit" value="Register" name="register" class="submit-button">
+            <div class="extra-links">
+                <p>Already have an account? 
+                    <a href="loginview.php" class="link">Sign In!</a>
+                </p>
+            </div>
         </form>
-
-        <br><br>
-        <a href="loginview.php" class="button">Back to Login</a>
-        
-    </body>
+    </div>
+</body>
 </html>
