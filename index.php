@@ -39,6 +39,10 @@ and the authors @ Unsplash
   ?>
 </div>
 
+<div class="title">
+  <h1></h1>
+</div>
+
 <div class="container">
 
   <!-- Add images -->
