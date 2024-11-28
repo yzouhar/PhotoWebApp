@@ -11,7 +11,7 @@ CREATE TABLE `users` (
 
 CREATE TABLE `posts` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `Picture` blob,
+  `Picture` longblob,
   `Content` varchar(255) DEFAULT NULL,
   `Likes` int NOT NULL DEFAULT '0',
   `User_id` int DEFAULT NULL,
